@@ -5,8 +5,9 @@ A DBMS Project for Audio Library Management made using Flask, HTM and CSS.
 The File Hierarchy is as follows:
 
 -> Project_Folder
-
-  ->static_folder
+      
+    ->static_folder
+  
       -> images_folder
           ->bootstrap-logo.png
           -> css-logo.png
@@ -17,8 +18,8 @@ The File Hierarchy is as follows:
           -> mysql-logo.png
       -> index.css
       
-  ->templates_folder
+    ->templates_folder
       -> base.html
       -> index.html
   
-  ->playlist.py
+    ->playlist.py
