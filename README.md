@@ -7,7 +7,6 @@ The File Hierarchy is as follows:
 -> Project_Folder
 
   ->static_folder
-  
       -> images_folder
           ->bootstrap-logo.png
           -> css-logo.png
