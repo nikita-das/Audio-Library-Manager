@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% block title %}Audio Library Manager{% endblock %}
+{% block body %}
+<body id="mainpg" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #020202;">
+    <div class="jumbotron jumbotron-fluid">
+        <img class="jumbotron-image" src="{{url_for('static', filename='images/jumbotron.png')}}">
+    </div>
+    <br><br>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md text-center">
+                    <h1 class="maintext">Here's your curated playlist containing your favourite songs!</h1>
+                    <br><br><br><br>
+                    <h1 class="maintext">We have made this website using the following techonologies - </h1>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md text-center">
+                            <img class="logos" src="{{url_for('static', filename='images/html-logo.png')}}">
+                            <img class="logos" src="{{url_for('static', filename='images/css-logo.png')}}">
+                            <img class="logos" src="{{url_for('static', filename='images/javascript-logo.png')}}">
+                            <img class="logos" src="{{url_for('static', filename='images/bootstrap-logo.png')}}">
+                            <img class="logos" src="{{url_for('static', filename='images/flask-logo.png')}}">
+                            <img class="logos" src="{{url_for('static', filename='images/mysql-logo.png')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="row">
+                <div class="col-md text-center">
+                    <h1 class="maintext" style="font-size: 26px;">The following functionalities have been added to this site - </h1>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h1 class="maintext" style="font-size: 30px;"><b>Add Songs to Playlist</b></h1>
+                    <br><h1 class="maintext" style="font-size: 27px;">This feature allows the user to type the song details and it will be added to the playlist.</h1>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h1 class="maintext" style="font-size: 32px;"><b>Delete Songs from Playlist</b></h1>
+                    <br><h1 class="maintext" style="font-size: 27px;">This feature allows the user to delete any song from the playlist just by clicking the "Delete button".</h1>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h1 class="maintext" style="font-size: 32px;"><b>Edit Songs in the Playlist</b></h1>
+                    <br><h1 class="maintext" style="font-size: 27px;">This feature allows the user to edit the details of the particular song in the playlist .</h1>
+                </div>
+            </div>
+            <br><br><br><br><br>
+            <div class="modal fade" id="addmusicmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content addmodal-content">
+                        <div class="modal-header addmodal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle" style="padding-left: 10px;">Add Songs to your Playlist</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row"> 
+                                    <div class="col-md">
+                                        <form action="{{url_for('insert')}}" method="POST">
+                                            <div class="row">
+                                                <div class="col-md text-left">
+                                                    <label for="name" class="modaltitle">Serial Number</label>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" name="s_no" placeholder="Enter the Music Title Name" value="{{s_no}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md text-left">
+                                                    <label for="name" class="modaltitle">Name of the Song</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="name" placeholder="Enter the Music Title Name" value="{{name}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md text-left">
+                                                    <label for="album" class="modaltitle">Name of the Album</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name ="album" placeholder="Enter the Music Album Name" value="{{album}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md text-left">
+                                                    <label for="artist" class="modaltitle">Name of the Artist</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="artist" placeholder="Enter the Artist's Name" value="{{artist}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md text-left">
+                                                    <label for="genre" class="modaltitle">Song Genre</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="genre" placeholder="Enter the Music Genre" value="{{genre}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <button type="submit" class="btn btn-primary addmodal" onclick="return mess();">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md'>
+                <h2 class="maintitle" style="color:aqua;"><b>My Playlist</b></h2> 
+                <button type="button" class = "btn addbtn btn-success float-right" data-toggle="modal" data-target = "#addmusicmodal">Add to Playlist</button>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {%for message in messages %}
+                            <div class="alert alert-success alert-dismissable" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                    <span aria-hidden="true">x</span>
+                                </button>
+                            {{message}}
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <table class="table table-hover table-dark">
+                            <tr>
+                                <th>S_No</th>
+                                <th>Name</th>
+                                <th>Artist</th>
+                                <th>Album</th>
+                                <th>Genre</th>
+                                <th>Action</th>
+                            </tr>
+                            {% for row in playlist %}
+                            <tr>
+                                <td>{{row.s_no}}</td>
+                                <td>{{row.name}}</td>
+                                <td>{{row.artist}}</td>
+                                <td>{{row.album}}</td>
+                                <td>{{row.genre}}</td>
+                                <td>
+                                    <a href="/update/{{row.s_no}}" class="btn schbtn btn-warning btn-xs" data-toggle="modal" data-target = "#modaledit{{row.s_no}}">Edit</a>
+                                    <a href="/delete/{{row.s_no}}" class="btn delbtn btn-danger btn-xs" onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                            <div class="modal fade" id="modaledit{{row.s_no}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content addmodal-content">
+                                        <div class="modal-header addmodal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle" style="padding-left: 10px;">Edit Songs in your Playlist</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row"> 
+                                                    <div class="col-md">
+                                                        <form action="{{url_for('update')}}" method="POST">
+                                                            <div class="row">
+                                                                <div class="col-md text-left">
+                                                                    <label for="name" class="modaltitle">Name of the Song</label>
+                                                                    <div class="form-group">
+                                                                        <input type="hidden"  name="s_no" value="{{row.s_no}}">
+                                                                        <input type="text" class="form-control" name="name" placeholder="Enter the Song Name" value="{{row.name}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-md text-left">
+                                                                    <label for="album" class="modaltitle">Name of the Album</label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name ="album" placeholder="Enter the Album Name" value="{{row.album}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-md text-left">
+                                                                    <label for="artist" class="modaltitle">Name of the Artist</label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="artist" placeholder="Enter the Artist's Name" value="{{row.artist}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-md text-left">
+                                                                    <label for="genre" class="modaltitle">Song Genre</label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="genre" placeholder="Enter the Music Genre" value="{{row.genre}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary addmodal" onclick="return mess();">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+        <footer class="end-credits">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md text-center">
+                        <h5 class="footer-text" style="color: #fff;">&#169 of Amaan Vora, Mihika Mishra and Nikita Das</h5>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>   
+{% endblock %}

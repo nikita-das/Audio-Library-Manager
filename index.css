@@ -1,0 +1,221 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans';
+    min-height: 200vh;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+@keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+}
+@-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(50%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+}
+
+.jumbotron{
+
+    background-color: transparent;
+}
+.jumbotron-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover no-repeat;
+}
+
+.maintext {
+    font-size: 30px;
+    font-family: 'Montserrat';
+    color: #fff;
+}
+
+.logos {
+    height: 70px;
+    margin: 20px;
+}
+.logos:hover {
+    height: 80px;
+    margin: 20px;
+    transition: height 0.3s;
+}
+.addbtn {
+    background-color: #21fc0d;
+    padding: 10px;
+    height: 70px;
+    width: 220px;
+    font-size: 21px;
+    font-family: 'Krona One';
+    color: #020202;
+    border-radius: 35px;
+    border: transparent;
+}
+.addbtn:hover {
+    background-color: transparent;
+    color: #21fc0d;
+    border: 5px #21fc0d;
+    box-shadow: 0px 0px 23px 2px rgba(33,252,13,1);
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+.delbtn {
+    background-color: #04d9ff;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    font-size: 16px;
+    font-family: 'Krona One';
+    color: #020202;
+    border-radius: 35px;
+    border: transparent;
+}
+.delbtn:hover {
+    background-color: transparent;
+    color: #04d9ff;
+    border: 5px #04d9ff;
+    box-shadow: 0px 0px 23px 2px rgba(4,217,255,1);
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+.schbtn {
+    background-color: #b007ff;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    font-size: 16px;
+    font-family: 'Krona One';
+    color: #020202;
+    border-radius: 35px;
+    border: transparent;
+}
+.schbtn:hover {
+    background-color: transparent;
+    color: #ff073a;
+    border: 5px #ff073a;
+    box-shadow: 0px 0px 23px 2px rgba(255,7,58,1);
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+.nametable {
+    background-color: #020202;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    color: #fff;
+}
+.albumtable {
+    background-color: #020202;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    color: #fff;
+}
+.artisttable {
+    background-color: #020202;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    color: #fff;
+}
+.genretable {
+    background-color: #020202;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    color: #fff;
+}
+.modal-body {
+    padding: 30px;
+}
+.modaltitle {
+    color: #f1f1f1;
+    font-family: 'Montserrat';
+}
+.addmodal-content {
+    background-color: #092215;
+}
+.addmodal-header {
+    background-image: linear-gradient(to right, black, #21fc0d);
+    color: #fff;
+    font-family: 'Krona One';
+    padding: 25px;
+}
+.addmodal {
+    background-color: #21fc0d;
+    padding: 10px;
+    height: 50px;
+    width: 120px;
+    font-size: 16px;
+    font-family: 'Krona One';
+    color: #020202;
+    border-radius: 20px;
+    border: transparent;
+}
+.delmodal-content {
+    background-color: #00001a;
+}
+.delmodal-header {
+    background-image: linear-gradient(to right, black, #04d9ff);
+    color: #fff;
+    font-family: 'Krona One';
+    padding: 25px;
+}
+.delmodal {
+    background-color: #04d9ff;
+    padding: 10px;
+    height: 50px;
+    width: 120px;
+    font-size: 16px;
+    font-family: 'Krona One';
+    color: #020202;
+    border-radius: 20px;
+    border: transparent;
+}
+.schmodal-content {
+    background-color: #1c0000;
+}
+.schmodal-header {
+    background-image: linear-gradient(to right, black, #ff073a);
+    color: #fff;
+    font-family: 'Krona One';
+    padding: 25px;
+}
+.schmodal {
+    background-color: #ff073a;
+    padding: 10px;
+    height: 50px;
+    width: 120px;
+    font-size: 16px;
+    font-family: 'Krona One';
+    color: #020202;
+    border-radius: 20px;
+    border: transparent;
+}
+.disp {
+    color: #fff;
+    font-size: 16px;
+}
